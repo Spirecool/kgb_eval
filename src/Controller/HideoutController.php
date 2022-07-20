@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/hideout')]
+#[Route('admin/hideouts')]
 class HideoutController extends AbstractController
 {
     #[Route('/', name: 'app_hideout_index', methods: ['GET'])]
