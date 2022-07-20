@@ -19,7 +19,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_mission_new', methods: ['GET', 'POST'])]
+    #[Route('admin/new', name: 'app_mission_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MissionRepository $missionRepository): Response
     {
         $mission = new Mission();
