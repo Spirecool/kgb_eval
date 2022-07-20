@@ -3,14 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Agent;
-use App\Form\AgentType;
+use App\Form\Agent1Type;
 use App\Repository\AgentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('admin/agents')]
+#[Route('admin/agent')]
 class AgentController extends AbstractController
 {
     #[Route('/', name: 'app_agent_index', methods: ['GET'])]
@@ -25,7 +25,7 @@ class AgentController extends AbstractController
     public function new(Request $request, AgentRepository $agentRepository): Response
     {
         $agent = new Agent();
-        $form = $this->createForm(AgentType::class, $agent);
+        $form = $this->createForm(Agent1Type::class, $agent);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class AgentController extends AbstractController
     #[Route('/{id}/edit', name: 'app_agent_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Agent $agent, AgentRepository $agentRepository): Response
     {
-        $form = $this->createForm(AgentType::class, $agent);
+        $form = $this->createForm(Agent1Type::class, $agent);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
