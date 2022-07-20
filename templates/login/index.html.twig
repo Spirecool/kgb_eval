@@ -25,7 +25,7 @@
                                 <input type="password" id="password" name="_password"  class="form-control form-control-lg"/>
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-                                <input type="hidden" name="_target_path" value="{{ path('home') }}"/>
+                                <input type="hidden" name="_target_path" value="{{ path('app_mission') }}"/>
                                 <button class="btn btn-outline-light btn-lg px-5 mt-5" type="submit">Login</button>
                             </div>
                         </form>
