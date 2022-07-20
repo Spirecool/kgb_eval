@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agent index{% endblock %}
+
+{% block body %}
+    <h1>Agent index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Last_name</th>
+                <th>First_name</th>
+                <th>Identification_code</th>
+                <th>Birthday</th>
+                <th>Nationality</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agent in agents %}
+            <tr>
+                <td>{{ agent.id }}</td>
+                <td>{{ agent.lastName }}</td>
+                <td>{{ agent.firstName }}</td>
+                <td>{{ agent.identificationCode }}</td>
+                <td>{{ agent.birthday ? agent.birthday|date('Y-m-d') : '' }}</td>
+                <td>{{ agent.nationality }}</td>
+                <td>
+                    <a href="{{ path('app_agent_show', {'id': agent.id}) }}">show</a>
+                    <a href="{{ path('app_agent_edit', {'id': agent.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_agent_new') }}">Create new</a>
+{% endblock %}
