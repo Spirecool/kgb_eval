@@ -36,7 +36,7 @@ class AgentType extends AbstractType
                     'Swiss' => 'Swiss',
                 ]
             ])
-            ->add('skill')
+
         ;
     }
 

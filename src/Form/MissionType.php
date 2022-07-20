@@ -34,11 +34,7 @@ class MissionType extends AbstractType
             ])
             ->add('start_date')
             ->add('end_date')
-            ->add('agents')
-            ->add('skill')
-            ->add('hideouts')
-            ->add('targets')
-            ->add('contacts')
+
 
 
 
