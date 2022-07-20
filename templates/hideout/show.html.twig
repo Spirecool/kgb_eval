@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hideout{% endblock %}
+
+{% block body %}
+    <h1>Hideout</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hideout.id }}</td>
+            </tr>
+            <tr>
+                <th>Hideout_code_name</th>
+                <td>{{ hideout.hideoutCodeName }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ hideout.address }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ hideout.country }}</td>
+            </tr>
+            <tr>
+                <th>Hideout_type</th>
+                <td>{{ hideout.hideoutType }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hideout_index') }}">back to list</a>
+
+    <a href="{{ path('app_hideout_edit', {'id': hideout.id}) }}">edit</a>
+
+    {{ include('hideout/_delete_form.html.twig') }}
+{% endblock %}

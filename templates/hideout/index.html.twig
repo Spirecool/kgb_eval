@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hideout index{% endblock %}
+
+{% block body %}
+    <h1>Hideout index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hideout_code_name</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>Hideout_type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hideout in hideouts %}
+            <tr>
+                <td>{{ hideout.id }}</td>
+                <td>{{ hideout.hideoutCodeName }}</td>
+                <td>{{ hideout.address }}</td>
+                <td>{{ hideout.country }}</td>
+                <td>{{ hideout.hideoutType }}</td>
+                <td>
+                    <a href="{{ path('app_hideout_show', {'id': hideout.id}) }}">show</a>
+                    <a href="{{ path('app_hideout_edit', {'id': hideout.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_hideout_new') }}">Create new</a>
+{% endblock %}
