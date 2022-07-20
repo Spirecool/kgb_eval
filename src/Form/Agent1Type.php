@@ -6,6 +6,8 @@ use App\Entity\Agent;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class Agent1Type extends AbstractType
 {
@@ -15,9 +17,25 @@ class Agent1Type extends AbstractType
             ->add('last_name')
             ->add('first_name')
             ->add('identification_code')
-            ->add('birthday')
-            ->add('nationality')
-            ->add('mission')
+            ->add('birthday', DateType::class, [
+                'widget' => 'choice',
+                'format' => 'y-M-d',
+                'years' => range(date("Y") - 90, date("Y") - 18)
+            ])
+            ->add('nationality', ChoiceType::class, [
+                'choices' => [
+                    'Belgium' => 'Belgium',
+                    'Brazil' => 'Brazil',
+                    'China' => 'China',
+                    'Congo' => 'Congo',
+                    'France' => 'France',
+                    'Japan' => 'Japan',
+                    'UK' => 'UK',
+                    'USA' => 'USA',
+                    'Russia' => 'Russia',
+                    'Swiss' => 'Swiss',
+                ]
+            ])
             ->add('skill')
         ;
     }
