@@ -1,0 +1,46 @@
+<nav class=" navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div>
+        <a class="navbar-brand" href="{{path('app_mission')}}">KGB SPY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav">
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('app_mission')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Agents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Targets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Skills</a>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="">Contacts</a>
+                </li>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="">Hideouts</a>
+                </li>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('logout')}}">Logout</a>
+                </li>
+
+                {% else %}
+
+                </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('home')}}">Missions</a>
+                </li>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="{{path('login')}}">Login</a>
+                </li>
+            </ul>
+        </div>
+
+        {% endif %}
+    </div>
+</nav>
