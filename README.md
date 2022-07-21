@@ -11,8 +11,7 @@ login : studiadmin@espion.fr
 mot-de-passe : passwordStudi-JO$
 
 ## Contexte du projet : la BDD
-***
-Application réaliser avec le framework Symfony Contexte projet : 
+*** 
 Les agents ont un nom, un prénom, une date de naissance, un code d'identification, une nationalité, 1 ou plusieurs spécialités.
 Les cibles ont un nom, un prénom, une date de naissance, un nom de code, une nationalité.
 Les contacts ont un nom, un prénom, une date de naissance, un nom de code, une nationalité.
