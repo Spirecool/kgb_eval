@@ -55,6 +55,9 @@ class Mission
     #[ORM\OneToMany(mappedBy: 'mission', targetEntity: Hideout::class)]
     private Collection $hideouts;
 
+    #[ORM\Column(length: 50)]
+    private ?string $country = null;
+
     public function __construct()
     {
         $this->agents = new ArrayCollection();
@@ -295,4 +298,22 @@ class Mission
 
         return $this;
     }
+    //on va passer l'objet en string
+    public function __toString(): string
+    {
+        return (string) $this->mission_code_name;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 }

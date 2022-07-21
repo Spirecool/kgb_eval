@@ -22,4 +22,5 @@ class SkillType extends AbstractType
             'data_class' => Skill::class,
         ]);
     }
+
 }
