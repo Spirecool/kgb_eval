@@ -123,4 +123,9 @@ class Agent
 
         return $this;
     }
+    //on va passer l'objet en string
+    public function __toString(): string
+    {
+        return (string) $this->identification_code;
+    }
 }
