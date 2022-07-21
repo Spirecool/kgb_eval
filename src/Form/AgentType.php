@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Agent;
+use App\Entity\Skill;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -36,7 +38,12 @@ class AgentType extends AbstractType
                     'Swiss' => 'Swiss',
                 ]
             ])
-
+            ->add('skill', EntityType::class, [
+                'choice_label' => 'name',
+                'class' => skill::class,
+                'multiple' => false,
+                'expanded' => false,
+            ])
         ;
     }
 

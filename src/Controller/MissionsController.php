@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 class MissionsController extends AbstractController
 {
-    #[Route('admin/missions', name: 'app_mission')]
+    #[Route('admin/missions', name: 'app_mission_index')]
     public function index(MissionRepository $missionRepository): Response
     {
         return $this->render('missions/index.html.twig', [
@@ -29,7 +29,7 @@ class MissionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $missionRepository->add($mission, true);
 
-            return $this->redirectToRoute('app_mission', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_mission_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('missions/new.html.twig', [
@@ -55,7 +55,7 @@ class MissionsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $missionRepository->add($mission, true);
 
-            return $this->redirectToRoute('app_mission', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_mission_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('missions/edit.html.twig', [
@@ -71,7 +71,7 @@ class MissionsController extends AbstractController
             $missionRepository->remove($mission, true);
         }
 
-        return $this->redirectToRoute('app_mission', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_mission_index', [], Response::HTTP_SEE_OTHER);
     }
 }
 
