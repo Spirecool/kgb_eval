@@ -6,6 +6,8 @@ use App\Entity\Mission;
 use App\Entity\Skill;
 use App\Entity\Agent;
 use App\Entity\Contact;
+use App\Entity\Hideout;
+use App\Entity\Target;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -65,12 +67,25 @@ class MissionType extends AbstractType
                 'multiple' => false,
                 'expanded' => false,
             ])
+            ->add('targets', EntityType::class, [
+                'choice_label' => 'target_code_name',
+                'class' => target::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('hideouts', EntityType::class, [
+                'choice_label' => 'hideout_code_name',
+                'class' => hideout::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->add('contacts', EntityType::class, [
                 'choice_label' => 'contact_code_name',
                 'class' => contact::class,
                 'multiple' => true,
                 'expanded' => true,
             ]);
+
 
 
 
