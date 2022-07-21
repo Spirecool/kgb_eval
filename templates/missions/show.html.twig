@@ -39,6 +39,16 @@
                 <th>End_date</th>
                 <td>{{ mission.endDate ? mission.endDate|date('Y-m-d') : '' }}</td>
             </tr>
+            <tr>
+                <th>Target</th>
+                <td>
+                    {% for mission in mission.targets %}
+                        <li>{{targets.target_code_name}}</li>
+                    {% endfor %}
+                </td>
+            </tr>
+
+            <tr>
         </tbody>
     </table>
 
