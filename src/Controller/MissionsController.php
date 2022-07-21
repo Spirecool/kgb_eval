@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 class MissionsController extends AbstractController
 {
-    #[Route('admin/missions', name: 'app_mission_index')]
+    #[Route('/', name: 'app_mission_index')]
     public function index(MissionRepository $missionRepository): Response
     {
         return $this->render('missions/index.html.twig', [
@@ -19,7 +19,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_mission_new', methods: ['GET', 'POST'])]
+    #[Route('admin/new', name: 'app_mission_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MissionRepository $missionRepository): Response
     {
         $mission = new Mission();
@@ -46,7 +46,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_mission_edit', methods: ['GET', 'POST'])]
+    #[Route('admin/{id}/edit', name: 'app_mission_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Mission $mission, MissionRepository $missionRepository): Response
     {
         $form = $this->createForm(MissionType::class, $mission);
@@ -64,7 +64,7 @@ class MissionsController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_mission_delete', methods: ['POST'])]
+    #[Route('admin/{id}', name: 'app_mission_delete', methods: ['POST'])]
     public function delete(Request $request, Mission $mission, MissionRepository $missionRepository): Response
     {
         if ($this->isCsrfTokenValid('delete' . $mission->getId(), $request->request->get('_token'))) {

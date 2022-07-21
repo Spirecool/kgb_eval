@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('   admin/targets')]
+#[Route('/targets')]
 class TargetController extends AbstractController
 {
     #[Route('/', name: 'app_target_index', methods: ['GET'])]
@@ -21,7 +21,7 @@ class TargetController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_target_new', methods: ['GET', 'POST'])]
+    #[Route('admin/new', name: 'app_target_new', methods: ['GET', 'POST'])]
     public function new(Request $request, TargetRepository $targetRepository): Response
     {
         $target = new Target();

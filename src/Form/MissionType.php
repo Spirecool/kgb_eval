@@ -67,6 +67,7 @@ class MissionType extends AbstractType
                 'multiple' => false,
                 'expanded' => false,
             ])
+            ->add('targets')
             ->add('targets', EntityType::class, [
                 'choice_label' => 'target_code_name',
                 'class' => target::class,
